@@ -3,8 +3,8 @@ const sdk = require("microsoft-cognitiveservices-speech-sdk");
 const speechConfig = sdk.SpeechConfig.fromSubscription("7e216866b7b044fe963494935f9abbe3", "centralus");
 speechConfig.speechRecognitionLanguage = "en-US";
 
-function fromFile(res) {
-    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync("audio.wav"));
+function fromFile(audioFileName, res) {
+    let audioConfig = sdk.AudioConfig.fromWavFileInput(fs.readFileSync(audioFileName));
     let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
 
      speechRecognizer.recognizeOnceAsync(result => {
