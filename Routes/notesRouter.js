@@ -7,6 +7,7 @@ notes = []
 router.post('/', (req, res) => {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
     notes.push({noteCreator: req.body.noteCreator, noteId: req.body.noteId, noteContent: req.body.noteContent})
+    await 
     res.send(`Received Note from ${ip}`)
 })
 
