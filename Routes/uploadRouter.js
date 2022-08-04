@@ -1,10 +1,11 @@
 const express = require('express')
+const fs = require('fs')
+const fromFile = require('../SpeechRecognition.js')
 
 const router = express.Router()
 
 router.post('/', (req, res) => {
-    // fromFile(res)
-    res.send(req.files)
+    fromFile(req.files.file.data, res)
 })
 
 module.exports = router
