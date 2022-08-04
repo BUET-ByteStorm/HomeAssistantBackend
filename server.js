@@ -6,6 +6,7 @@ const request = require('request')
 
 const fromFile = require('./SpeechRecognition.js')
 const uploadRouter = require('./Routes/uploadRouter.js')
+const notesRouter = require('./Routes/notesRouter.js')
 
 const app = express()
 
@@ -19,6 +20,8 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : true}))
 
 app.use('/upload-file', uploadRouter)
+
+app.use('/notes', notesRouter)
 
 app.get('/', (req, res) => {
     request('http://www.google.com', function (error, response, body) {
