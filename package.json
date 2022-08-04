@@ -25,6 +25,7 @@
     "express-fileupload": "^1.4.0",
     "ioredis": "^5.2.2",
     "microsoft-cognitiveservices-speech-sdk": "^1.22.0",
+    "pg": "^8.7.3",
     "redis": "^4.2.0",
     "request": "^2.88.2"
   },
