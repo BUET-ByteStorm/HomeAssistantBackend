@@ -23,14 +23,4 @@ app.use('/upload-file', uploadRouter)
 
 app.use('/notes', notesRouter)
 
-app.get('/', (req, res) => {
-    request('http://www.google.com', function (error, response, body) {
-  if (!error && response.statusCode == 200) {
-    console.log(body) // Print the google web page.
-  }
-})
-    res.send('DONE')
-
-})  
-
 app.listen(process.env.PORT || 3000)
