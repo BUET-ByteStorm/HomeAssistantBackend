@@ -10,7 +10,7 @@ function fromFile(audioFile, res) {
      speechRecognizer.recognizeOnceAsync(result => {
         switch (result.reason) {
             case sdk.ResultReason.RecognizedSpeech:
-                res.send(`RECOGNIZED: Text=${result.text}`);
+                res.send(`${result.text}`);
                 break;
             case sdk.ResultReason.NoMatch:
                 res.send("NOMATCH: Speech could not be recognized.");
