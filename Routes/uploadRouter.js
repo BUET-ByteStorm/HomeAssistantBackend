@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.post('/', (req, res) => {
     console.log(req.body)
-    res.send('File Received')
+    res.send(req.body)
 })
 
 module.exports = router

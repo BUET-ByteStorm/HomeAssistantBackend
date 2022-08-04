@@ -7,6 +7,8 @@ const app = express()
 const fromFile = require('./SpeechRecognition.js')
 const uploadRouter = require('./Routes/uploadRouter.js')
 
+app.use(express.json())
+
 app.use('/upload-file', uploadRouter)
 
 app.use(fileUpload())
