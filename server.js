@@ -12,18 +12,12 @@ app.use(express.json())
 app.use(cors({
     origin: '*'
 }))
-app.use('/upload-file', uploadRouter)
 
 app.use(fileUpload())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended : true}))
 
-app.get('/', (req, res) => {
-    res.send('Hello There')
-})
 
-app.get('/test-audio', async (req, res) => {
-    fromFile(res)
-})
+app.use('/upload-file', uploadRouter)
 
 app.listen(process.env.PORT || 3000)
