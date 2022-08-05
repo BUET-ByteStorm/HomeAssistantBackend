@@ -23,7 +23,7 @@ const rateLimiter = (req, res, next) => {
         console.log("Time  :: " + diffTime);
         collection.set(ip, new Date())
 
-        if (isNaN(diffTime) || diffTime >= 10000) {
+        if (isNaN(diffTime) || diffTime >= 1000) {
             next();
         }
         else {
