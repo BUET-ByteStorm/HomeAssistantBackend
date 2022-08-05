@@ -1,6 +1,8 @@
 const express = require('express')
+const { isValidJWTToken } = require('../authentication/authentication.middleware')
 const router = express.Router()
 
+router.use(isValidJWTToken)
 notes = []
 
 router.post('/', (req, res) => {

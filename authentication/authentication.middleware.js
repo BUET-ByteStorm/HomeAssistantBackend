@@ -44,8 +44,10 @@ const login = async (req, res, next) => {
 const isValidJWTToken = (req, res, next) => {
   const SECRET_KEY = process.env.JWT_SECRET || '';
   if (req.headers['authorization']) {
+    console.log(req.headers)
     try {
       const authorization = req.headers['authorization'].split(' ');
+      console.log(authorization[1])
       if (authorization[0] != 'Bearer') {
         return res.status(401).json({});
       } else {

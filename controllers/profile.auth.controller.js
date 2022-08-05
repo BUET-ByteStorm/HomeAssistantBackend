@@ -1,5 +1,5 @@
 // import { makeHash } from '../authentication/authentication.service';
-const makeHash = require('../authentication/authentication.service')
+const { makeHash } = require('../authentication/authentication.service')
 const AuthRepository = require('../database/repository/authRepository');
 const authRepository = new AuthRepository();
 

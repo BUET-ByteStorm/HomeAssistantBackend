@@ -6,7 +6,7 @@ const authController = new AuthController();
 
 const authRouter = express.Router();
 
-authRouter.post('/token', login, getAccessToken);
+authRouter.post('/login', login, getAccessToken);
 authRouter.post('/register', authController.register);
 
 module.exports =  authRouter;
