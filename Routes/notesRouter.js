@@ -1,9 +1,10 @@
 const express = require('express')
-const { isValidJWTToken } = require('../authentication/authentication.middleware')
+const { isValidJWTToken } = require('../authentication/authentication.middleware.js')
 const router = express.Router()
 
-router.use(isValidJWTToken)
 notes = []
+
+router.use(isValidJWTToken);
 
 router.post('/', (req, res) => {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
