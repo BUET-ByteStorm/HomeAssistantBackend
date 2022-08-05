@@ -1,4 +1,4 @@
-import crypto from 'crypto';
+const  crypto =require('crypto');
 const makeHash = (password) => {
   const salt = crypto.randomBytes(16).toString('base64');
   const hash = crypto
@@ -23,4 +23,4 @@ const isPasswordValid = (hashPassword, password) => {
   }
 };
 
-export { makeHash, isPasswordValid };
+module.exports = { makeHash, isPasswordValid };

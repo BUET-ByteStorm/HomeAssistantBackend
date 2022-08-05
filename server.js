@@ -1,5 +1,7 @@
 const express = require('express')
+// import express from 'express';
 const fileUpload = require('express-fileupload')
+// import fileUpload from 'express-fileupload';
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const request = require('request')
@@ -7,8 +9,8 @@ const request = require('request')
 const fromFile = require('./SpeechRecognition.js')
 const uploadRouter = require('./Routes/uploadRouter.js')
 const notesRouter = require('./Routes/notesRouter.js')
-// const authRouter = require('./Routes/auth.router')
-import authRouter from './Routes/auth.router'
+const authRouter = require('./Routes/auth.router.js')
+// import authRouter from './Routes/auth.router'
 const app = express()
 
 app.use(fileUpload())

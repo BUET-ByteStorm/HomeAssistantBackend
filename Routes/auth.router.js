@@ -1,7 +1,7 @@
-import express from 'express';
-import getAccessToken from '../authentication/authentication.controllers';
-import { login } from '../authentication/authentication.middleware';
-import AuthController from '../controllers/profile.auth.controller';
+const express = require('express');
+const getAccessToken = require('../authentication/authentication.controllers') ;
+const { login } = require('../authentication/authentication.middleware') ;
+const AuthController = require('../controllers/profile.auth.controller');
 const authController = new AuthController();
 
 const authRouter = express.Router();
@@ -9,4 +9,4 @@ const authRouter = express.Router();
 authRouter.post('/token', login, getAccessToken);
 authRouter.post('/register', authController.register);
 
-export default authRouter;
+module.exports =  authRouter;

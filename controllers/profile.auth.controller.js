@@ -1,9 +1,10 @@
-import { makeHash } from '../authentication/authentication.service';
-import AuthRepository from '../database/repository/authRepository';
+// import { makeHash } from '../authentication/authentication.service';
+const makeHash = require('../authentication/authentication.service')
+const AuthRepository = require('../database/repository/authRepository');
 const authRepository = new AuthRepository();
 
 class AuthController {
-  register = async (req: any, res: any) => {
+  register = async (req, res) => {
     // console.log(req.body);
     //   is user exist or not
     const { username } = req.body;
@@ -20,7 +21,7 @@ class AuthController {
         message: 'The user exists',
       });
     }
-    const param: any = {};
+    const param= {};
     param.username = username;
     param.first_name = req.body.first_name;
     param.last_name = req.body.last_name;
@@ -41,4 +42,5 @@ class AuthController {
     //  entry the data
   };
 }
-export default AuthController;
+
+module.exports = AuthController;

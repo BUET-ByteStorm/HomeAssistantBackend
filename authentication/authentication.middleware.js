@@ -1,10 +1,9 @@
-import { NextFunction, Response } from 'express';
-
-import jwt from 'jsonwebtoken';
-import AuthRepository from '../database/repository/authRepository';
+const { NextFunction, Response } =require('express');
+const jwt =require('jsonwebtoken');
+const AuthRepository = require('../database/repository/authRepository');
 const authRepository = new AuthRepository();
 
-import { isPasswordValid } from './authentication.service';
+const { isPasswordValid } =require('./authentication.service');
 
 const login = async (req, res, next) => {
   const { username, password } = req.body;
@@ -71,4 +70,4 @@ const isValidJWTToken = (req, res, next) => {
   }
 };
 
-export { login, isValidJWTToken };
+module.exports = { login, isValidJWTToken };

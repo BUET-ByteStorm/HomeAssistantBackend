@@ -1,4 +1,4 @@
-const { Repository } = require("../Repository");
+const { Repository } = require("./Repository");
 
 class UserAuthRepository extends Repository {
     constructor () {

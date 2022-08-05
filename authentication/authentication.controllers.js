@@ -1,4 +1,4 @@
-import jwt from 'jsonwebtoken';
+const jwt =require('jsonwebtoken');
 const getAccessToken = async (req, res) => {
   const data = req.body;
   const token = jwt.sign(data, process.env.JWT_SECRET || 'sayMyName');
@@ -9,4 +9,4 @@ const getAccessToken = async (req, res) => {
     .status(200);
 };
 
-export default getAccessToken;
+module.exports = getAccessToken;
