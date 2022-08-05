@@ -31,7 +31,9 @@
     "microsoft-cognitiveservices-speech-sdk": "^1.22.0",
     "pg": "^8.7.3",
     "redis": "^4.2.0",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "swagger-ui-express": "^4.5.0",
+    "yamljs": "^0.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

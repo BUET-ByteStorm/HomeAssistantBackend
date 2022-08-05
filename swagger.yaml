@@ -1,0 +1,108 @@
+openapi: "3.0.2"
+info:
+  title: "Backend API"
+  description: "This api is created by using Express framework .Swagger is used for auto-documentation."
+  version: "1.0.0"
+  contact:
+    name: "disco"
+servers:
+    - url: https://home-assistant-bytestorm.herokuapp.com
+  # - url: http://localhost:8080/api
+  # - url: https://b0a3-103-94-134-96.in.ngrok.io/api
+paths:
+  /auth/register:
+    post:
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: User not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Invalid phone or password
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: email
+                password:
+                  type: string
+                  example: password
+      tags:
+        - "user"
+  /auth/login:
+    post:
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: User not found
+        "500":
+          description: Internal Server Error
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  example: phone
+                password:
+                  type: string
+                  example: password
+      tags:
+        - "user"
+  /notes:
+    post:
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: User not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Invalid phone or password
+      security:
+        - bearAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  example: today is the best day of my life
+      
+      tags:
+        - "notes"
+    get:
+      responses:
+        "200":
+          description: ok
+        "404":
+          description: User not found
+        "500":
+          description: Internal Server Error
+        "401":
+          description: Invalid phone or password
+      security:
+        - bearAuth: []
+      tags:
+        - "notes"
+components:
+  securitySchemes:
+    bearAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

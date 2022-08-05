@@ -11,6 +11,11 @@ const uploadRouter = require('./Routes/uploadRouter.js')
 const notesRouter = require('./Routes/notesRouter.js')
 const authRouter = require('./Routes/auth.router.js')
 // import authRouter from './Routes/auth.router'
+const swaggerUI = require('swagger-ui-express');
+const YAML = require('yamljs');
+const swaggerDocument = YAML.load('./swagger.yaml');
+
+
 const app = express()
 
 const collection = new Map()
@@ -43,7 +48,9 @@ const rateLimiter = (req, res, next) => {
             res.send("Too many requests");
         }
 }
-app.use(rateLimiter);
+// app.use(rateLimiter);
+app.use('/api-docs',swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+
 app.use('/upload-file', uploadRouter)
 app.use('/notes', notesRouter)
 app.use('/auth', authRouter)
