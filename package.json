@@ -19,12 +19,17 @@
   },
   "homepage": "https://github.com/BUET-ByteStorm/HomeAssistantBackend#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-fileupload": "^1.4.0",
     "ioredis": "^5.2.2",
+    "jsonwebtoken": "^8.5.1",
     "microsoft-cognitiveservices-speech-sdk": "^1.22.0",
+    "pg": "^8.7.3",
     "redis": "^4.2.0",
     "request": "^2.88.2"
   },
