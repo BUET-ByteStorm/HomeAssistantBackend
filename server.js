@@ -15,6 +15,19 @@ const app = express()
 
 const collection = new Map()
 
+
+
+
+app.use(fileUpload())
+app.use(express.json())
+app.use(cors({
+    origin: '*'
+}))
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended : true}))
+
+
 const rateLimiter = (req, res, next) => {
     const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress
         var cur = new Date();
@@ -30,18 +43,7 @@ const rateLimiter = (req, res, next) => {
             res.send("Too many requests");
         }
 }
-
 app.use(rateLimiter);
-
-app.use(fileUpload())
-app.use(express.json())
-app.use(cors({
-    origin: '*'
-}))
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended : true}))
-
 app.use('/upload-file', uploadRouter)
 app.use('/notes', notesRouter)
 app.use('/auth', authRouter)
